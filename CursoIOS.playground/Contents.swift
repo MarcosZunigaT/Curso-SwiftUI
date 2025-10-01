@@ -415,3 +415,51 @@ func countVocalInString(text:String){
 
 countVocalInString(text: "Aris")
 
+//Tuplas
+
+var tupla = ("Marcos",31,true,"Calle mi casa", 55555555, 1.87)
+
+print(tupla.4)
+
+//Diccionarios
+
+var dicc:[String: Any] = ["name":"Marcos", "age":31, "imHappy":true, "address": "Calle mi casa"]
+var myDiccName:String = dicc["name"] as? String ?? "Pepito"
+print(myDiccName)
+
+for (key, value) in dicc{
+    print("La clave \(key) contiene \(value)")
+}
+
+//Nullabilidad
+
+var stringNotNil:String = "Loquesea"
+var stringNil:String?
+
+print(stringNotNil)
+print(stringNil)
+
+func ejemploNil(text:String){
+    
+}
+
+ejemploNil(text: stringNotNil)
+ejemploNil(text: stringNil ?? "Ejemplo")
+ejemploNil(text: stringNil!)
+
+func ejemploNil2(text:String?){
+    if let example = text {
+        print(example)
+    } else {
+        print("Introduce un nombre para continuar")
+    }
+    
+    guard let example2 = text else {
+        return
+    }
+    
+    print("Hola \(example2)")
+}
+
+ejemploNil2(text: stringNotNil)
+ejemploNil2(text: stringNil)
