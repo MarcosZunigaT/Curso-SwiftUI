@@ -445,7 +445,7 @@ func ejemploNil(text:String){
 
 ejemploNil(text: stringNotNil)
 ejemploNil(text: stringNil ?? "Ejemplo")
-ejemploNil(text: stringNil!)
+//ejemploNil(text: stringNil!)
 
 func ejemploNil2(text:String?){
     if let example = text {
@@ -463,3 +463,44 @@ func ejemploNil2(text:String?){
 
 ejemploNil2(text: stringNotNil)
 ejemploNil2(text: stringNil)
+
+//Clases
+
+class Persona {
+    
+    var name:String
+    var age:Int
+    
+    init(
+        name: String,
+        age: Int
+    ) {
+        self.name = name
+        self.age = age
+    }
+    
+    
+    func greetings(){
+        print("Hola soy \(name) y tengo \(age) años.")
+    }
+}
+
+var marcos:Persona = Persona(name: "Marcos Zuniga", age: 31)
+var pepe:Persona = Persona(name: "Pepe", age: 86)
+
+marcos.greetings()
+pepe.greetings()
+
+
+//Structs
+
+struct ExampleStruct {
+    var name:String
+    var age:Int
+}
+
+var exampleStruct:ExampleStruct = ExampleStruct(name: "Roberto Perez", age: 25)
+var exampleStruct2:ExampleStruct = ExampleStruct(name: "Tauron Tellez", age: 8)
+
+exampleStruct.name
+exampleStruct2.age
