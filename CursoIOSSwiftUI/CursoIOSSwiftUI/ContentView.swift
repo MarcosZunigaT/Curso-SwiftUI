@@ -7,25 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    var body: some View {
-        VStack {
-            Rectangle()
-                .foregroundColor(.red)
-                .frame(height: 40)
-            Rectangle()
-                .foregroundColor(.red)
-                .frame(height: 40)
-                .padding(.bottom, 60)
-            Rectangle()
-                .foregroundColor(.red)
-                .frame(height: 100)
-        }
-        .padding()
-    }
-}
-
-struct GeometryContentView : View {
+struct Excercise1View : View {
     var body: some View {
         VStack{
             HStack{
@@ -65,6 +47,6 @@ struct GeometryContentView : View {
 }
 
 #Preview {
-    GeometryContentView()
+    Excercise1View()
 }
 
