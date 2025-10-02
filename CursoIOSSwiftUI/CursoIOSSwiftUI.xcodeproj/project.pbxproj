@@ -32,8 +32,8 @@
 		794FAB142E8DEE7A00DE2062 = {
 			isa = PBXGroup;
 			children = (
-				794FAB1F2E8DEE7A00DE2062 /* CursoIOSSwiftUI */,
 				794FAB1E2E8DEE7A00DE2062 /* Products */,
+				794FAB1F2E8DEE7A00DE2062 /* CursoIOSSwiftUI */,
 			);
 			sourceTree = "<group>";
 		};
