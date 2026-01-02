@@ -15,6 +15,8 @@ struct IMCView: View {
     
     @State var gender:Int = 0
     @State var selectedHeight:Double = 150
+    @State var ageCounter:Int = 31
+    @State var weightCounter:Int = 80
     
     var body: some View {
         VStack {
@@ -25,6 +27,14 @@ struct IMCView: View {
             }
             HeightCalculator(
                 selectedHeight: $selectedHeight
+            )
+            HStack{
+                CounterButton(count: $ageCounter, text: "Edad")
+                CounterButton(count: $weightCounter, text: "Peso")
+            }
+            IMCCalculateButton(
+                userWeight: Double(weightCounter),
+                userHeight: selectedHeight
             )
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(.backgroundApp)
@@ -97,6 +107,57 @@ struct HeightCalculator: View {
     }
 }
 
+struct CounterButton:View {
+    
+    @Binding var count:Int
+    let text:String
+    
+    var body: some View{
+        VStack{
+            TitleText(text: text)
+            InformationText(text: String(count))
+            HStack{
+                Button(
+                    action: {
+                        if count > 0 {
+                            count -= 1
+                        }
+                    }, label: {
+                        ZStack{
+                            Circle()
+                                .frame(width: 70,height: 70)
+                                .foregroundColor(.purple)
+                            Image(systemName: "minus")
+                                .resizable()
+                                .scaledToFit()
+                                .foregroundColor(.white)
+                                .frame(width: 25, height: 25)
+                        }
+                    }
+                )
+                Button(
+                    action: {
+                        if count < 100 {
+                            count += 1
+                        }
+                    }, label: {
+                        ZStack{
+                            Circle()
+                                .frame(width: 70,height: 70)
+                                .foregroundColor(.purple)
+                            Image(systemName: "plus")
+                                .resizable()
+                                .foregroundColor(.white)
+                                .frame(width: 25, height: 25)
+                        }
+                    }
+                )
+            }
+        }.frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(.backgroundComponent)
+    }
+}
+
 struct TitleText: View {
     
     let text:String
@@ -106,6 +167,29 @@ struct TitleText: View {
             .bold()
             .font(.title2)
             .foregroundColor(.gray)
+    }
+}
+
+struct IMCCalculateButton:View {
+    let userWeight:Double
+    let userHeight:Double
+    
+    var body: some View{
+        NavigationStack{
+            NavigationLink(
+                destination: {
+                    IMCResult(
+                        userWeight: userWeight,
+                        userHeight: userHeight
+                    )
+                },
+                label: {
+                    Text("Calcular").font(.title).bold().foregroundColor(.purple)
+                        .frame(maxWidth: .infinity, maxHeight: 100)
+                        .background(.backgroundComponent)
+                }
+            )
+        }
     }
 }
 

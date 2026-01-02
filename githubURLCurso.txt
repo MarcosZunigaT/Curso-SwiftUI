@@ -1,1 +1,4 @@
 https://github.com/ArisGuimera/iOS-Expert
+
+Access-Token SuperHero API
+afadd947b97adecc1bf734d8895457f2
